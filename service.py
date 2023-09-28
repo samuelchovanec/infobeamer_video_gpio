@@ -5,7 +5,7 @@ from hosted import device, node, config, time, threading
 device.gpio.monitor(config.pin_16)
 
 
-#sixteen_is_on = False
+sixteen_is_on = False
 
 
 def handle_pin_16():
