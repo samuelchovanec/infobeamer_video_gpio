@@ -3,9 +3,8 @@ from hosted import device, node, config, time, threading
 config.restart_on_update()
 device.gpio.setup_pin(26, direction="out")
 device.gpio.set_pin_value(26, high=True)
-time.sleep(43200)
-device.gpio.set_pin_value(26, high=True)
-device.gpio.setup_pin(26, direction="out")
+#device.gpio.set_pin_value(26, high=True)
+#device.gpio.setup_pin(26, direction="out")
       
 
 
