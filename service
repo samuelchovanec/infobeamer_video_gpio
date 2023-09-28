@@ -1,30 +1,12 @@
 #!/usr/bin/python2.7
 from hosted import device, node, config, time, threading
 config.restart_on_update()
+device.gpio.setup_pin(26, direction="out")
+device.gpio.set_pin_value(26, high=True)
+time.sleep(43200)
+device.gpio.set_pin_value(26, high=True)
+device.gpio.setup_pin(26, direction="out")
+      
 
 
-device.gpio.monitor(config.pin_16)
-
-
-sixteen_is_on = False
-
-
-def handle_pin_16():
-    global sixteen_is_on
-    if not sixteen_is_on:
-        sixteen_is_on = True
-        print("pin 16 touched")
-        device.gpio.setup_pin(20, direction="out")
-        device.gpio.setup_pin(26, direction="out")
-        device.gpio.set_pin_value(26, high=True)
-        time.sleep(20)
-        device.gpio.set_pin_value(20, high=True)
-        device.gpio.set_pin_value(26, high=True)
-        device.gpio.setup_pin(26, direction="out")
-        sixteen_is_on = False
-
-for pin, state in device.gpio.poll_forever():
-    if state == 1:
-        if pin == 16:
-            threading.Thread(target=handle_pin_16).start()
         
