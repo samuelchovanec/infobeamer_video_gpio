@@ -1,3 +1,4 @@
+#!/usr/bin/python2.7
 from hosted import device, node, config, time, threading
 config.restart_on_update()
 
