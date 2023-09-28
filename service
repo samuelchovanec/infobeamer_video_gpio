@@ -22,4 +22,9 @@ def handle_pin_16():
         device.gpio.set_pin_value(26, high=True)
         device.gpio.setup_pin(26, direction="out")
         sixteen_is_on = False
+
+for pin, state in device.gpio.poll_forever():
+    if state == 1:
+        if pin == 16:
+            threading.Thread(target=handle_pin_16).start()
         
